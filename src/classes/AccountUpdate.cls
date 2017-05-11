@@ -2,7 +2,7 @@ public class AccountUpdate {
     @AuraEnabled
     public static String saveRecord(String acc) {
     	Account thisAccount = (Account)JSON.deserialize(acc, Account.class);
-    	return thisAccount.Name;
+    	return appendString(thisAccount.Name);
         
     }
 
@@ -12,5 +12,9 @@ public class AccountUpdate {
     	return [SELECT Name
     			FROM Account WHERE Id =: accId LIMIT 1];
         
+    }
+
+    private static String appendString(String input) {
+        return input+' - should be good.';
     }
 }
