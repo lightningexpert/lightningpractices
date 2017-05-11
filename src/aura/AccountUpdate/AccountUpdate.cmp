@@ -1,0 +1,8 @@
+<aura:component controller="AccountUpdate" implements="force:lightningQuickAction,force:hasRecordId" >
+	<aura:attribute name="acc" type="Account" default="{Name: 'test'}" />
+
+	<ui:inputText aura:id="accName" value="{!v.acc.Name}" label="Account Name"/>
+
+	<lightning:button onclick="{!c.save}" label="save"  ></lightning:button>
+
+</aura:component>

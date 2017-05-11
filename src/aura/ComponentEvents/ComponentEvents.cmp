@@ -1,0 +1,9 @@
+<aura:component >
+    <aura:registerEvent name="ComponentEventExample" type="c:ComponentEventExample" />
+    <aura:handler name="ComponentEventExample" action="{!c.handleSampleEvent}" />
+    <aura:attribute name="setMeOnEventFiring" type="String" default="**nothing fired yet" />
+    <h1>Component 8 - Events</h1>
+    <p>Create an event and then handle it.</p>
+    <p><ui:button label="Click me to fire the event" press="{!c.handleClick}"/></p>
+    <p>Was the event fired? {!v.setMeOnEventFiring}</p>
+</aura:component>

@@ -1,0 +1,36 @@
+<aura:component >
+    <aura:attribute name="customAddress"  
+                    type="Boolean"  
+                    default="true"  
+                    required="false"  
+                    />
+    Disable:{!v.customAddress}
+    
+    
+    <form>
+        <lightning:input aura:id="street"
+                         type="text"
+                         label="{! 'Street address' }"
+                         name="{! 'street' }"
+                         disabled='{! v.customAddress }'
+                         value="{! 'Test' }"
+                         required="{! true }"
+                         />
+        <br />
+        <lightning:select aura:id="sendTo"
+                          label="{! $Label.c.Send_To }"
+                          name="{! $Label.c.Send_To }"
+                          >
+            <option value="{! null }" selected="{! true }">{! 'Select a mail' }</option>
+            
+            <option value="test1" label="test1"></option>
+            <option value="test2" label="test2"></option>
+            
+        </lightning:select>
+        <lightning:buttonIcon name="Add selected address"
+                              iconName="utility:add"
+                              alternativeText="{! 'Select address' }"
+                              onclick="{! c.selectAddress }"
+                              />
+    </form>
+</aura:component>

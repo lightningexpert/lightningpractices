@@ -1,0 +1,8 @@
+<aura:component controller="ProductSelectorCtrl" implements="force:lightningQuickAction">
+	<ltng:require styles="{!$Resource.SLDS + '/assets/styles/salesforce-lightning-design-system-ltng.css'}"/>
+	<aura:handler name="init" value="{!this}" action="{!c.getPriceBookList}" />
+    
+     <aura:attribute name="availablePriceBooks" type="sObject[]" />
+     <aura:attribute name="availableProducts" type="sObject[]" />
+    
+</aura:component>

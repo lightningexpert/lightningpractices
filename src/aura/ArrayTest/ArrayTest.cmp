@@ -1,0 +1,8 @@
+<aura:component controller="ArrayTest">
+    <!-- Attribute use to display objects-->
+    <aura:attribute name="strings" type="ArrayTest.simple[]" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <p>worked</p>
+</aura:component>

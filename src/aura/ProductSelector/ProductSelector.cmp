@@ -1,0 +1,45 @@
+<aura:component controller="ProductSelectorCtrl" implements="force:lightningQuickAction,force:hasRecordId">
+    <ltng:require styles="{!$Resource.SLDS + '/assets/styles/salesforce-lightning-design-system-ltng.css'}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getPriceBookList}" />
+    
+    <aura:attribute name="availablePriceBooks" type="Pricebook2[]" />
+    <aura:attribute name="availableProducts" type="Product2[]" />
+    <aura:attribute name="oppRecordId" type="String" />
+    
+    <div class="slds">
+        <div id="Spinner" aura:id="spin" class="slds-hide">
+            <div role="status" class="slds-spinner slds-spinner--brand slds-spinner--medium">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+        <ui:inputSelect aura:id="InputSelectSingle" change="{!c.pricebookSelected}">
+            <ui:inputSelectOption text="" label=""/>
+            <aura:iteration items="{!v.availablePriceBooks}" var="item">
+                <ui:inputSelectOption text="{!item.Id}" label="{!item.Name}"/>
+            </aura:iteration>
+        </ui:inputSelect>
+        <div>
+            <aura:iteration items="{!v.availableProducts}" var="prod">
+                <lightning:card iconName="standard:product">
+                	<aura:set attribute="title">
+                        <!--<lightning:icon iconName="standard:product" size="medium"/>-->
+                        <aura:text value="{!prod.Product2.Name}" />
+                    </aura:set>
+                    <aura:set attribute="actions" >
+                        <lightning:button iconName="utility:check"/>
+                    </aura:set>
+                    <p	class="slds-p-horizontal--small">
+                        <aura:text value="Sales Price" />: 
+                        <ui:outputCurrency value="{!prod.UnitPrice}" />
+                    </p>
+                </lightning:card>
+            </aura:iteration>
+        </div>
+    </div>
+    
+    
+    
+    
+</aura:component>

@@ -1,0 +1,10 @@
+<!--c:ifCleanUnrendered-->
+<aura:component >
+    <p>Performance Issue example</p>
+    <aura:attribute name="isVisible" type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <aura:if isTrue="{!v.isVisible}">
+        <p>I am visible</p>
+    </aura:if>
+</aura:component>
